@@ -32,6 +32,6 @@ console.log(twoSum([1,2,3,4],6))//[1,3]
 console.log(twoSum([]))
 
 
-// //optimized solution(using hashmap)
+// //optimized solution(using hashmap).
 
 
