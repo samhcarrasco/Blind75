@@ -31,7 +31,22 @@ console.log(twoSum([1,2,3],4))//[0,2]
 console.log(twoSum([1,2,3,4],6))//[1,3]
 console.log(twoSum([]))
 
+ //optimized solution(using hashmap)
+ 
+function twoSummer(array, target){
+  const hashMap = {};
+  for(let i = 0; i < array.length; i++){
+    let addend = target - array[i]
+    if(hashMap[addend] == undefined){
+      hashMap[array[i]] = i
+    }
+    else{
+      return [hashMap[addend], i]
+    }
+  }
+};
 
-// //optimized solution(using hashmap).
 
-
+console.log("optimized",twoSummer([1,2,3],4))//[0,2]
+console.log(twoSummer([1,2,3,4],6))//[1,3]
+console.log(twoSummer([]))
