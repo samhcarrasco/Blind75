@@ -16,3 +16,17 @@ console.log(conDup([1,2,3,4,5,6,7,8,9]))
 //optimized solution (hashmap)
 
 
+function conDup2(array){
+  const hashMap={};
+  
+  for(let i = 0; i < array.length; i++){
+    if(hashMap[array[i]]){
+      return true
+    }
+    if(hashMap[array[i]] === undefined){
+      hashMap[array[i]] = i
+    }
+  }
+  return false
+}
+console.log(conDup2([1,3,4,5,8,9]))
