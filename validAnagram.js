@@ -1,15 +1,24 @@
 
 /********************************************************Valid Anagram********************************************************/
  var isAnagram = function(s, t) {
-   const string = s.split('')
-   const compare = t.split('')
-   if(string.length !== compare.length ){
-     return false
-   }
-   for(let i = 0; i < string.length; i++){
-     for 
+  let hash = {};
+  if(s.length !== t.length)return false
+  for(let character of s){
+    if (hash[character]){
+      hash[character] += 1
+    }
+    if(!hash[character]){
+      hash[character] = 1
+    }
   }
- 
+
+  for(let character of t){
+    if(!hash[character]){
+      return false
+    }
+    hash[character] -= 1
+  }
+  return true
  };
- isAnagram("chinos","music");
+ console.log(isAnagram("chinos","sinoch"));
 
