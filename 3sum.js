@@ -14,20 +14,18 @@ function three(arr){
     while(p2 < arr.length -1){
       console.log("p2 loop", p2)
       while(p3 < arr.length){
-        if(arr[p1]+arr[p2]+arr[p3] === 0){
-          solution.push([arr[p1],arr[p2],arr[p3]])
-        }
         console.log("p3 loop", p3,arr[p3])
         if(arr[p1]+arr[p2]+arr[p3] === 0){
           console.log(solution)
           solution.push([arr[p1],arr[p2],arr[p3]])
         }
+        if(p3 > 5){p3++}
         p3++
       }
       p2++
     }
-    return solution
   }
+  return solution
 };
 console.log("hi")
 console.log(three([-1,0,1,2,-1,-4]))
