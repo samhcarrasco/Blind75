@@ -1,33 +1,33 @@
-function three(arr){
-  if(arr[0] == undefined){
-    return "empty array man ";
-  }
-  if(arr.length < 3){
-    return "longer array pls"
-  }
-  let p1 = 0;
-  let p2 = 1;
-  let p3 = 2;
-  const solution =[];
-  for(let p1= 0; p1 < arr.length - 2; p1++){
-    console.log("p1 loop", p1)
-    while(p2 < arr.length -1){
-      console.log("p2 loop", p2)
-      while(p3 < arr.length){
-        console.log("p3 loop", p3,arr[p3])
-        if(arr[p1]+arr[p2]+arr[p3] === 0){
-          console.log(solution)
-          solution.push([arr[p1],arr[p2],arr[p3]])
-        }
-        if(p3 > 5){p3++}
-        p3++
+var threeSum = function(nums) {
+  nums.sort((a, b) => a - b)
+  
+  let res = []
+  
+  for (let i = 0; i < nums.length; i++) {
+      if (nums[i] > 0) break                  // Sum of pos integers will never be = to 0
+      
+      const target = -nums[i]
+      
+      let left = i + 1
+      let right = nums.length - 1
+      
+      if (nums[i] === nums[i - 1]) continue                     // Avoid duplicates
+      
+      while (left < right) {
+          if (nums[left] + nums[right] === target) {
+              res.push([nums[i], nums[left], nums[right]])
+              left++
+              while (nums[left] === nums[left - 1]) {           // Avoid duplicates
+                  left++
+              }
+          } else if (nums[left] + nums[right] < target) {
+              left++
+          } else {
+              right--
+          }
       }
-      p2++
-    }
+      
   }
-  return solution
+  return res
 };
-console.log("hi")
-console.log(three([-1,0,1,2,-1,-4]))
-console.log(three([]))
-console.log(three([0,1,3]))
+console.log(threeSum([-1,0,1,2,-1,-4,5,6,2,3,5-1,0,-6,-5]))
